@@ -1,7 +1,10 @@
 import { OpenAPIHono, createRoute, z } from "@hono/zod-openapi";
 import { swaggerUI } from "@hono/swagger-ui";
+import { createRouteUno } from "./uno";
 
 export const createRouteList = (app: OpenAPIHono) => {
+  createRouteUno(app);
+  
   app.openapi(
     createRoute({
       method: "get",
