@@ -1,4 +1,4 @@
-import { Hono } from "hono";
+import { OpenAPIHono, createRoute, z } from "@hono/zod-openapi";
 import { handle } from "hono/vercel";
 import { swaggerUI } from "@hono/swagger-ui";
 
@@ -6,7 +6,7 @@ export const config = {
   runtime: "edge",
 };
 
-const app = new Hono().basePath("/api");
+const app = new OpenAPIHono().basePath("/api");
 
 app.get("/", (c) => {
   return c.json({ message: "Hello Hono!" });
