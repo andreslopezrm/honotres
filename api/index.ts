@@ -2,11 +2,9 @@ import { Hono } from "hono";
 import { handle } from "hono/vercel";
 import { swaggerUI } from "@hono/swagger-ui";
 
-/*
 export const config = {
   runtime: "edge",
 };
-*/
 
 const app = new Hono().basePath("/api");
 
