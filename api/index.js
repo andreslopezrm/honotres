@@ -1,5 +1,6 @@
 import { OpenAPIHono, createRoute, z } from "@hono/zod-openapi";
 import { handle } from "hono/vercel";
+import { swaggerUI } from "@hono/swagger-ui";
 
 const app = new OpenAPIHono().basePath("/api");
 
