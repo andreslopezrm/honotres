@@ -1,7 +1,7 @@
 {
   "type": "module",
   "scripts": {
-    "dev": "tsx watch lib/index.ts",
+    "dev": "tsx watch server/index.ts",
     "start": "vercel dev",
     "deploy": "vercel"
   },
