@@ -1,48 +1,10 @@
-import { OpenAPIHono, createRoute, z } from "@hono/zod-openapi";
+import { OpenAPIHono } from "@hono/zod-openapi";
 import { handle } from "hono/vercel";
-import { swaggerUI } from "@hono/swagger-ui";
+import { createRouteList } from "../lib/routes";
 
 const app = new OpenAPIHono().basePath("/api");
 
-app.openapi(
-  createRoute({
-    method: "get",
-    path: "/",
-    responses: {
-      200: {
-        description: "Respond a message",
-        content: {
-          "application/json": {
-            schema: z.object({
-              message: z.string(),
-            }),
-          },
-        },
-      },
-    },
-  }),
-  (c) => {
-    return c.json({
-      message: "hello",
-    });
-  },
-);
-
-app.get(
-  "/swaui",
-  swaggerUI({
-    url: "/api/doc",
-  }),
-);
-
-app.doc("/doc", {
-  info: {
-    title: "An API",
-    version: "v1",
-  },
-  openapi: "3.1.0",
-});
-
+createRouteList(app);
 const handler = handle(app);
 
 export const GET = handler;
