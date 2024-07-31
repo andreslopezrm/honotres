@@ -1,6 +1,7 @@
 import { serve } from "@hono/node-server";
 import { OpenAPIHono } from "@hono/zod-openapi";
-import { createRouteList } from "../api/routes";
+import { createRouteList } from "./routes";
+
 
 const app = new OpenAPIHono().basePath("/api");
 
