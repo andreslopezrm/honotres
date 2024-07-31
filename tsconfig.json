@@ -7,6 +7,7 @@
     "skipLibCheck": true,
     "strict": true,
     "allowJs": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "noEmit": true
   }
 }
