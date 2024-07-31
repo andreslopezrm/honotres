@@ -1,2 +1,4 @@
-# honotres
-hono api
+```
+npm install
+npm run start
+```
