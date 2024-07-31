@@ -1,6 +1,6 @@
 import { OpenAPIHono } from "@hono/zod-openapi";
 import { handle } from "hono/vercel";
-import { createRouteList } from "./inicio";
+import createRouteList from "./inicio.js";
 
 const app = new OpenAPIHono().basePath("/api");
 createRouteList(app);
