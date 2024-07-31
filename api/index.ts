@@ -23,6 +23,10 @@ export default handle(app);*/
 import { Hono } from "hono";
 import { handle } from "@hono/node-server/vercel";
 
+export const config = {
+  runtime: "nodejs",
+};
+
 const app = new Hono().basePath("/api");
 
 app.get("/", (c) => {
