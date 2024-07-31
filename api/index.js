@@ -29,7 +29,7 @@ app.openapi(
 );
 
 app.get(
-  "/ui",
+  "/swaui",
   swaggerUI({
     url: "/api/doc",
   }),
