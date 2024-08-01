@@ -1,13 +1,16 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "module": "ESNext",
-    "moduleResolution": "Node",
+    "target": "ES2022",
+    "module": "ES2022",
+    "moduleResolution": "node",
     "esModuleInterop": true,
     "skipLibCheck": true,
     "strict": true,
     "allowJs": true,
     "isolatedModules": true,
-    "noEmit": true
+    "noEmit": true,
+    "declaration": false,
+    "noImplicitOverride": true,
+    "sourceMap": true,
   }
 }
