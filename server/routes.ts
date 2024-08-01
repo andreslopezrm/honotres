@@ -1,11 +1,12 @@
 import { OpenAPIHono, createRoute, z } from "@hono/zod-openapi";
 import { swaggerUI } from "@hono/swagger-ui";
+import { sign } from 'hono/jwt'
 import { createRouteUno } from "./uno.js";
 
 
 export const createRouteList = (app: OpenAPIHono) => {
   createRouteUno(app);
-  
+
   app.openapi(
     createRoute({
       method: "get",
@@ -17,15 +18,25 @@ export const createRouteList = (app: OpenAPIHono) => {
             "application/json": {
               schema: z.object({
                 message: z.string(),
+                token: z.string()
               }),
             },
           },
         },
       },
     }),
-    (c) => {
+    async (c) => {
+      const payload = {
+        sub: 'user123',
+        role: 'admin',
+        exp: Math.floor(Date.now() / 1000) + 60 * 5, // Token expires in 5 minutes
+      }
+      const secret = 'mySecretKey'
+      const token = await sign(payload, secret)
+
       return c.json({
         message: "hello from vercel",
+        token
       });
     },
   );
